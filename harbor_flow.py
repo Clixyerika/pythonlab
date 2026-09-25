@@ -12,9 +12,30 @@ def show_menu():
 def task_validate_reference():
     print("(Task 2 not implemented yet)")
 
+def calculate_quote(distance, weight, service_code):
+    subtotal = 45.00 + distance * 6.50 + weight * 4.00
 
-def task_calculate_quote():
-    print("(Task 3 not implemented yet)")
+    if service_code == "S":
+        service_multiplier = 1.00
+    elif service_code == "X":
+        service_multiplier = 1.25
+    else:
+        service_multiplier = 1.60
+
+    quote = subtotal * service_multiplier
+    return quote
+
+
+def delivery_quote():
+    distance = float(input("Distance (km): "))
+    weight = float(input("Weight (kg): "))
+    service_code = input("Service code: ").strip().upper()
+
+    quote = calculate_quote(distance, weight, service_code)
+
+    print(f"Delivery quote: {quote:.2f} SEK")
+
+
 
 
 def task_consolidate_labels():
